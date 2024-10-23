@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <title>SustianHer waste wise </title>
+    <link rel="icon" type="image/jpg" href="logo2.jpeg"/>
+    <script
+    src="https://kit.fontawesome.com/cf8841ba4a.js"
+    crossorigin="anonymous"
+  ></script>
+</head>
+<body>
+    <div class="main-part">
+<header>
+    <div id="webname" class="webname">
+            <img src="logo2.jpeg" >
+        <span class="name">Sustain<b>HER </b> &nbsp;Waste wise</span>
+    </div>
+    <div class="head">
+        <div><a href="#webname">Home</a></div>
+        <div><a href="#wastepick">Waste management</a></div>
+        <div><a href="hack1.html">Resource sharing</a></div>
+        <div><a href="abtus.html">About Us</a></div>
+
+    <div class="profile" >
+        <div><i class="fa-solid fa-circle-user "  style="font-size: 60px;color:rgb(46, 72, 242)" onclick="profileDisplay()" > </i></div>
+    </div>
+    </div>
+</header>
+
+<div class="profile-details">
+    <i class="fa-solid fa-xmark fa-2xl cross"  onclick="profileDisplay()"></i>
+    <div><i class="fa-solid fa-circle-user profile-pic "  style="font-size: 80px;color:rgb(46, 72, 242)" > </i></div>
+    <br>
+    <p>@hospital</p>
+    <p>ABC road</p>
+    <p>Tumkur</p>
+    <br/>
+    <p class="starcontainer">Points earned  :  55</p>
+    <br/>
+    <p>Payment details : </p>
+    <p>withdrawed :  &#x20B9; 2000</p>
+    <P>Yet to reveiw :  &#x20B9;<span style="opacity:0.5">120</span></P>
+    <p>withdraw :  &#x20B9;30</p>
+    <br>
+    <button style="border-radius:20px;width:200px;height:25px;">Withdraw</button>
+    <p class="refer">Refer to friends</p>
+    <p class="log-out"><a href="index.html">Logout</a></p>
+ </div>
+
+<section class="front">
+    <div class="quotes">
+        <h1>"Revolutionizing waste collection isn't just about recycling; it's about empowering communities and enabling a circular economy."</h1>
+    </div>
+    <div class="image">
+        <img src="img1.jpg">
+    </div>
+</section>
+
+<section id="wastepick" class="wastepick1">
+    <div class="feedback" onclick="displayfeedback()">FeedBack</div>
+    <div class="request" onclick="displayrequest()">Request <br><p style="font-size: 18px;">for  picking</p> </div>
+    <div class="norequest" onclick="displaynorequest()">Number <br> <p style="font-size: 18px;">of requests</p> </div>
+</section>
+
+<section class="wastepick2">
+   <div class="feedback1">
+    <i class="fa-solid fa-xmark fa-2xl cross" style="color: red;font-size:40px; position:relative;left:500px;top:10px" onclick="displayfeedback()"></i>
+    <div class="form-part">
+    <h1 >Give Your Feedback about our service</h1>
+    <p class="instruct"><em style="color: red;">Rate the below questions from 0(min) to 10(max)</em></p>
+   
+    <form>
+        <div>
+        <label for="rate_service">How much you are satisified with our service?&nbsp;&nbsp;&nbsp;</label>
+        <input id="rate_service" type="number" max="10" min="0" required>
+    </div>
+        <br/>
+        <div>
+        <label for="payment1">Rate payment tranperancey : </label>
+        <input id="payment1" type="number" max="10" min="0" required>
+    </div>
+    <br/>
+    <div>
+        <label for="payment2">Have you recieved your payment ? </label>
+        <input id="paymentyes" type="radio" name="payment" >
+        <label for="paymentyes" >Yes</label>
+        <input id="paymentno" type="radio" name="payment" >
+        <label for="paymentno" >NO</label>
+    </div>
+        <br/>
+        <div>
+        <label for="text">Any suggestions (optional):</label>
+        <textarea width="100px" height="20px"></textarea>
+        <br/>
+    </div>
+    <input type="button" value="Submit" onclick="submitwindow()" class="button"> 
+
+    </form>
+    </div>
+    
+    <div class="submitted-part">
+        <h1>Thank you for submitting!!!</h1>
+    </div>
+  
+   </div>
+
+   <div class="request1">
+    <i class="fa-solid fa-xmark fa-2xl cross" style="color: red;font-size:40px; position:relative;left:500px;top:10px" onclick="displayrequest()"></i>
+   
+    <div class="asking">
+        <h1>Request for Service</h1>
+        <form>
+            <label for="time">Schedule Time &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</label>
+            <input id="time" type="text" placeholder="time format h:min:AM/PM" required>
+            <br/><br>
+            <label for="date">Schedule Date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+            <input id="date" type="date" required>
+            <br/><br/>
+            <label for="address">Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+            <input id="address" type="text" placeholder="like 5th cross, mandipet, tumkur" required>
+            <br/><br>
+            <label for="weight">Approximate weight :</label>
+            <input id="weight" type="text" placeholder="in kilograms" required>
+            <br/><br>
+            <input type="button" value="Send Request" onclick="notifying(this.form)" class="button"> 
+        </form>
+    </div>
+    <div class="request-submit-part" style="display: none;">
+        <h1>Thank you for requesting. Waste taker will be there at or before <span id="time-given">specified time</span> at <span id="address-given">your specified address</span>!!!</h1>
+        <p>Payment details will be updated soon in your profile. </p>
+    </div>
+    
+   </div>
+
+   <div class="norequest1">
+    <i class="fa-solid fa-xmark fa-2xl cross" style="color: red;font-size:40px; position:relative;left:500px;top:10px" onclick="displaynorequest()"></i>
+        <div class="norequest-login">
+        <p><em>For workers only.</em></p>
+        <br>
+        <form>
+            <label for="id">Enter ID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+            <input id="id" type="text" required>
+            <br/><br>
+            <label for="password">Enter Password :</label>
+            <input id="password" type="password" required>
+            <br><br>
+            <input type="button" value="Login" onclick="tofile(this.form)" class="button"> 
+        </form>
+        </div>
+    
+        <div class="after-login">
+            <table >
+                <tr>
+                    <td>Scheduled time</td>
+                    <td>Scheduled date</td>
+                    <td>Scheduled Address</td>
+                    <td>Approximate weight</td>
+                </tr>
+                <tr>
+                    <td><span id="s_time"></span></td>
+                    <td><span id="s_date"></span> </td>
+                    <td><span id="s_address"></span></td>
+                    <td><span id="s_weight"></span></td>
+                </tr>
+            </table>
+        </div>
+   </div>
+</section>
+</div>
+
+<div class="maps">
+    <img src="">
+</div>
+
+
+
+<div class="collabration">
+
+<section class="places">
+    <div class="places-text">
+        <small  style="font-size:27px;margin-top:100px;">In collaboration with</small>
+        
+    </div>
+
+    <div class="cards">
+        <div class="card">
+            <div class="zoom-img">
+                <div class="img-card">
+                    <img
+                        src="https://kspprints.com/wp-content/uploads/2020/04/R759-Composting-Smart-4x4-1.jpg">
+                </div>
+            </div>
+
+            <div class="text">
+                <span class="rating">⭐⭐⭐⭐⭐</span>
+                <h2>Go-Compost</h2>
+                <p class="cost">Trusted!</p>
+            </div>
+
+        </div>
+        <div class="card">
+            <div class="zoom-img">
+                <div class="img-card">
+                  <img src="a.jpeg"></a>
+                </div>
+            </div>
+
+            <div class="text">
+                <span class="rating">⭐⭐⭐⭐⭐</span>
+                <h2>Whisper</h2>
+                <p class="cost">Trusted</p>
+            
+            </div>
+
+        </div>
+        <div class="card">
+            <div class="zoom-img">
+                <div class="img-card">
+                    <img src="b.jpeg">
+                </div>
+            </div>
+
+            <div class="text">
+                <span class="rating">⭐⭐⭐⭐⭐</span>
+                <h2>Nandini</h2>
+                <p class="cost">Trusted!</p>
+               
+            </div>
+
+        </div>
+        <div class="card">
+            <div class="zoom-img">
+                <div class="img-card">
+                    <img
+                        src="c.jpeg">
+                </div>
+            </div>
+
+            <div class="text">
+                <span class="rating">⭐⭐⭐⭐⭐</span>
+                <h2>Bisleri</h2>
+                <p class="cost">Trusted!</p>
+               
+            </div>
+
+        </div>
+        </div>
+          
+       
+    </section>
+    <section class="services">
+        <div class="service-item">
+            <img src="school.jpeg">
+            <h2>800+ Our Local Schools</h2>
+        </div>
+        <div class="service-item">
+            <img src="hospital.jpeg">
+            <h2>100% Trusted Health Agency</h2>
+        </div>
+        <div class="service-item">
+            <img src="industry.jpeg">
+            <h2>28+ approved of Industries</h2>
+        </div>
+        <div class="service-item">
+            <img src="house.jpeg">
+            <h2>98% Our Home are Happy and Clean</h2>
+        </div>
+    </section>
+    
+    <footer>
+            <div class="footer">
+        <div class="links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li>Offers & Discounts</li>
+                <li>Get Coupon</li>
+                <li>Contact Us</li>
+                <li>About</li>
+            </ul>
+        </div>
+       
+        <div class="links">
+            <h3>Support</h3>
+            <ul>
+                <li>Frequently Asked Questions</li>
+                <li>Report a Payment Issue</li>
+                <li>Terms & Conditions</li>
+                <li>Privacy Policy</li>
+            </ul>
+        </div>
+    </div>
+    <h3 style="text-align: center;background-color: #000;color: #fff;">&copy; 2023 SustainHer waste wise. All Rights Reserved.</h3></footer>
+
+    </footer>
+
+<script src="home.js">
+</script>
+</body>
+</html>

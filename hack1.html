@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SustainHer waste wise</title>
+    <link rel="icon" type="image/jpg" href="logo2.jpeg"/>
+    <link rel="stylesheet" href="Resources.css">
+    <script src="hack1.js"></script>
+    
+</head>
+<body>
+    <div class="header">
+        <header class="header-content">
+            <a href="#logo" class="logo">
+                <img src="handshake.png" alt="logoImage" class="logo-icon" />
+                <span class="logo-text">Resource Sharing</span>
+            </a>
+         
+            <a href="home.html" class="contact-button">
+               Home
+            </a>
+            <button type="button" class="menu-button">
+                <img src="./images/Hamburger.svg" alt="menuButton" class="menu-icon" />
+            </button>
+        </header>
+    </div>
+    <div class="content">
+        <section class="main-section">
+            <div class="content-left">
+                <p class="section-label">Very proud to introduce</p>
+                <h1 class="section-title">Resource Sharing Digital platform</h1>
+                <p class="section-description">
+                    Our innovative platform facilatates the sharing of these underused resources among community members.Without centalized mechanism , people struggle to connect and 
+                    utilize these assets effectivel
+                </p>
+                <div class="button-group">
+                    <a href="#start" class="start-button">Start Buy</a>
+                    <a href="#add" class="tour-button" >Add Resource </a>
+                </div>
+            </div>
+            
+            <div class="content-right">
+                <div class="image-container">
+                    <img src="RS-1.jpeg" alt="sectionImage" class="section-image" />
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="feature-container" id="add">
+        <div class="feature-content">
+            <div class="main-info">
+                <div class="feature-content1">
+                <h2 class="main-title">
+                    Add resources
+                </h2>
+                <div class="resource">
+                   <div class="option"> 
+                    <form action="">
+                    <label for="option">Type of Resource:</label>
+                        <select name="" id="option" >
+                            <option value="Vehicles" id="option">Vehicles</option>
+                            <option value="Toys" id="option">Toys</option>
+                            <option value="Books" id="option">Books</option>
+                            <option value="Gadgets" id="option">Gadgets</option>
+                        </select><br><br>
+                        <label for="option">Your cost:</label>
+                        <input type="text"><br><br>
+                      
+        
+                        <label for="imageInput">Select an image:</label>
+        <input type="file" id="imageInput" accept="image/*" onchange="previewImage(event)">
+        <br><br>
+        
+        <!-- Image preview -->
+        <img id="imagePreview" src="#" alt="Image Preview">
+        <button type="button" onclick="removeImage()">Remove</button>
+         <script>
+        function previewImage(event) {
+            var input = event.target;
+            var preview = document.getElementById('imagePreview');
+
+            var reader = new FileReader();
+
+            reader.onload = function(){
+                preview.src = reader.result;
+            };
+
+            if (input.files && input.files[0]) {
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function removeImage() {
+            var input = document.getElementById('imageInput');
+            var preview = document.getElementById('imagePreview');
+
+            // Clear the file input
+            input.value = "";
+
+            // Clear the image preview
+            preview.src = "";
+        }
+    </script>
+        <script>
+            function previewImage(event) {
+                var input = event.target;
+                var preview = document.getElementById('imagePreview');
+    
+                var reader = new FileReader();
+    
+                reader.onload = function(){
+                    preview.src = reader.result;
+                };
+    
+                if (input.files && input.files[0]) {
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+        </script>
+                        
+                    </form>
+                </div> 
+                    <div class="button-group1">
+                       <center>  <a href="#tour" class="tour-button" onclick="submitResource()">Add</a></center>
+                    </div>
+                    <script>
+
+                        function submitResource() {
+                            // Display a confirmation dialog
+                            var isConfirmed = window.confirm("Are you sure you want to submit your resource?");
+                
+                            // Check if the user clicked "OK" in the confirmation dialog
+                            if (isConfirmed) {
+                                // Show a pop-up message
+                                window.alert("Your resource has been submitted.");
+                
+                                // Reload the page
+                                window.location.reload();
+                            }
+                        }
+
+
+        function submitResource() {
+            // Display a confirmation dialog
+            var isConfirmed = window.confirm("Are you sure you want to submit your resource?");
+
+            // Check if the user clicked "OK" in the confirmation dialog
+            if (isConfirmed) {
+                // Show a pop-up message
+                window.alert("Your resource has been submitted.");
+
+                // Reload the page
+                window.location.reload();
+            }
+        }</script>
+            </div>
+        </div>
+            
+  
+</div>
+</div>
+    <div class="feature-container" id="start">
+        <div class="feature-content">
+            <div class="main-info">
+                <h2 class="main-title">
+                    Our resources
+                </h2>
+                <p class="main-description">
+                    In this section people buy their spare tools,bikes, or kitchen gadgets when they are not using
+
+                </p>
+                <label for="search"  id="search">Search for resources</label>
+                <input type="text" id="searchInput" placeholder="Enter search text" oninput="searchResources()">
+                <button onclick="searchResources()" class="tour-button">Search</button>
+                <script>
+                    function searchResources() {
+                        // Get the search input value
+                        var searchText = document.getElementById('searchInput').value.toLowerCase();
+                  
+                        // Get all the feature cards
+                        var featureCards = document.querySelectorAll('.feature-card');
+                  
+                        // Loop through each card to check if it contains the search text
+                        featureCards.forEach(function(card) {
+                            var cardText = card.innerText.toLowerCase();
+                            if (cardText.includes(searchText)) {
+                                // If the card contains the search text, display it
+                                card.style.display = 'block';
+                            } else {
+                                // If the card does not contain the search text, hide it
+                                card.style.display = 'none';
+                            }
+                        });
+                    }
+                  </script>
+            </div>
+            
+            <div class="feature-grid">
+                <!-- card 1 -->
+                <div class="feature-card">
+                    <img src="cycle.jpeg" alt="">
+                    <div class="feature-info">
+                        <div class="feature-title">
+                          
+                        </div>
+                        <div class="feature-description">
+                            <h1>Bycycle</h1>
+                            <table>
+                                <tr>
+                                    <td><b>Owner:</b>Sai prakash </td>
+                                </tr>
+                                <tr>
+                                    <td>Price:780</td>
+                                </tr>
+                            </table>                
+                
+            
+            
+            </div>
+            <a href="#start" id="showFormButton" onclick="showRegistrationForm()" class="fig-button">Buy</a>
+                    </div>
+                </div>
+                <!-- card 2 -->
+                <div class="feature-card">
+                    <img src="books.jpg" alt="">
+                    <div class="feature-info">
+                        <div class="feature-title">
+                          
+                        </div>
+                        <div class="feature-description">
+                            <table>
+                                <h1>Books</h1>
+                                <tr>
+                                    <td><b>Owner:</b>Harish Verma </td>
+                                </tr>
+                                <tr>
+                                    <td>Price:1000</td>
+                                </tr>
+                            </table>                
+                
+            
+            
+            </div>
+            <a href="#start" id="showFormButton" onclick="showRegistrationForm()" class="fig-button">Buy</a>
+                    </div>
+                </div>
+                <!-- card 3 -->
+                <div class="feature-card">
+                    <img src="watch.jpg" alt="">
+                    <div class="feature-info">
+                        <div class="feature-title">
+                          
+                        </div>
+                        <div class="feature-description">
+                            <h1>Watch</h1>
+                            <table>
+                                <tr>
+                                    <td><b>Owner:</b>Kalpana Killi</td>
+                                </tr>
+                                <tr>
+                                    <td>Price:300</td>
+                                </tr>
+                            </table>                
+                
+            
+            
+            </div>
+            <a href="#start" id="showFormButton" onclick="showRegistrationForm()" class="fig-button">Buy</a>
+                    </div>
+                </div>
+                <!-- card 4 -->
+                <div class="feature-card">
+                    <img src="pc.jpeg" alt="">
+                    <div class="feature-info">
+                        <div class="feature-title">
+                          
+                        </div>
+                        <div class="feature-description">
+                            <h1>PC</h1>
+                            <table>
+                                <tr>
+                                    <td><b>Owner:</b>Lakshmipathi R </td>
+                                </tr>
+                                <tr>
+                                    <td>Price:640</td>
+                                </tr>
+                            </table>                
+                
+            
+            
+            </div>
+            <a href="#start" id="showFormButton" onclick="showRegistrationForm()" class="fig-button">Buy</a>
+                    </div>
+                </div>
+                <!-- card 5 -->
+                <div class="feature-card">
+                    <img src="gym equipments.jpeg" alt="">
+                    <div class="feature-info">
+                        <div class="feature-title">
+                          
+                        </div>
+                        <div class="feature-description">
+                            <h1>Gym equipments</h1>
+                <table>
+                    <tr>
+                        <td><b>Owner:</b>Lalith D</td>
+                    </tr>
+                    <tr>
+                        <td>Price:1000</td>
+                    </tr>
+                </table>
+            
+            
+            </div>
+            <a href="#start" id="showFormButton" onclick="showRegistrationForm()" class="fig-button">Buy</a>
+                    </div>
+                </div>
+                <!-- card 6 -->
+                <div class="feature-card">
+                    <img src="camera.jpeg" alt="">
+                    <div class="feature-info">
+                        <div class="feature-title">
+                          
+                        </div>
+                        <div class="feature-description">
+                            <h1>Camera</h1>
+                            <table>
+                                <tr>
+                                    <td><b>Owner:</b>Lalith d</td>
+                                </tr>
+                                <tr>
+                                    <td>Price:1000</td>
+                                </tr>
+                            </table>                
+                
+            
+            
+            </div>
+            <a href="#start" id="showFormButton" onclick="showRegistrationForm()" class="fig-button">Buy</a>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <img src="cycle.jpeg" alt="">
+                    <div class="feature-info">
+                        <div class="feature-title">
+                          
+                        </div>
+                        <div class="feature-description">
+                            <h1>Bycycle</h1>
+                            <table>
+                                <tr>
+                                    <td><b>Owner:</b>Manoj S </td>
+                                </tr>
+                                <tr>
+                                    <td>Price:1000</td>
+                                </tr>
+                            </table>                
+                
+            
+            
+            </div>
+            <a href="#start" id="showFormButton" onclick="showRegistrationForm()" class="fig-button">Rent</a>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <img src="cycle.jpeg" alt="">
+                    <div class="feature-info">
+                        <div class="feature-title">
+                          
+                        </div>
+                        <div class="feature-description">
+                            <h1>Bycycle</h1>
+                            <table>
+                                <tr>
+                                    <td><b>Owner:</b>Manoj S </td>
+                                </tr>
+                                <tr>
+                                    <td>Price:1000</td>
+                                </tr>
+                            </table>                
+                
+            
+            
+            </div>
+            <a href="#start" id="showFormButton" onclick="showRegistrationForm()" class="fig-button">Rent</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="testimonial-container">
+        <div class="testimonial-content">
+            <h2 class="testimonial-title">
+                Communities
+            </h2>
+            <div class="testimonial-grid">  
+                <!-- card 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        “StudySync revolutionized my classroom! Engaging content and teacher resources make learning enjoyable. Highly recommended for educators.”
+                    </div>
+                    <div class="testimonial-avatar">
+                        <img src="user-female.png"/>
+                    </div>
+                    <div class="testimonial-details">
+                        <h3 class="testimonial-name"> 
+                            Women Associations
+                        </h3>
+                        <p class="testimonial-desc">
+                            India
+                        </p>
+                    </div>
+                </div>
+                <!-- card 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        “StudySync transformed our family's learning journey. Safe, interactive, and progress tracking features are invaluable for parents.”
+                    </div>
+                    <div class="testimonial-avatar">
+                        <img src="edu.webp"/>
+                    </div>
+                    <div class="testimonial-details">
+                        <h3 class="testimonial-name"> 
+                           School Associations
+                        </h3>
+                        <p class="testimonial-desc">
+                            EDE
+                        </p>
+                    </div>
+                </div>
+                <!-- card 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        “StudySync, a true game-changer! Flexible content, tailored assessments, and excellent support. Integral to our school district's success.”
+                    </div>
+                    <div class="testimonial-avatar">
+                        <img src="healthcare.webp"/>
+                    </div>
+                    <div class="testimonial-details">
+                        <h3 class="testimonial-name"> 
+                            Health Associations
+                        </h3>
+                        <p class="testimonial-desc">
+                            ICMR
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="newsletter-container">
+        <div class="newsletter-content">
+           
+            <!-- right part -->
+            <div class="news-right">
+                <div class="news-info">
+                    <h2 class="news-title">Get the latest updates</h2>
+                    
+                    <p class="news-desc">Sign up for our newsletter</p>
+                </div>
+                <form class="news-form">
+                    <input class="news-email" placeholder="Email" />
+                    <button class="news-send-button">
+                        Send
+                    </button>
+                </form>
+                <div class="privacy-policy">
+                    By signing up to our newsletter you agree to our
+                    <a class="news-link">
+                        Terms of Service
+                    </a>
+                    and
+                    <a class="news-link">
+                        Privacy policy
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /*-----------------------------------------form container -------------------------/ -->
+ 
+
+</body>
+</html>
